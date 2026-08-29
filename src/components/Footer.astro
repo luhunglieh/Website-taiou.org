@@ -1,0 +1,242 @@
+---
+import Icon from './Icon.astro';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer id="contact" class="bg-gradient-to-b from-sky-100/90 via-sky-50 to-sky-100 text-slate-800 border-t border-sky-200 relative">
+  <!-- Top Half: 聯絡方式、捐款資訊、FB官方粉專 -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 border-b border-sky-200/80">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+        聯絡方式與支持
+      </h2>
+      <div class="w-16 h-1 bg-sky-400 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto items-stretch">
+      
+      <!-- Card 1: 聯絡資訊 -->
+      <div class="bg-white border border-sky-200/80 shadow-md rounded-2xl p-7 space-y-6 flex flex-col justify-between">
+        <div class="space-y-6">
+          <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2.5">
+            <Icon name="address-book" class="w-6 h-6 text-sky-500" />
+            <span>聯絡資訊</span>
+          </h3>
+
+          <ul class="space-y-3.5 text-slate-700 text-sm sm:text-base">
+            <li class="flex items-start gap-2.5">
+              <Icon name="location-dot" class="w-5 h-5 text-sky-500 mt-0.5 shrink-0" />
+              <div>
+                <span class="font-bold text-slate-900">登記地址 : </span>
+                <span>臺北市南京東路二段101號9樓</span>
+              </div>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <Icon name="phone" class="w-5 h-5 text-sky-500 shrink-0" />
+              <div>
+                <span class="font-bold text-slate-900">服務電話 : </span>
+                <a href="tel:0225116900" class="text-sky-600 hover:text-sky-700 hover:underline font-semibold">(02)2511-6900</a>
+              </div>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <Icon name="envelope" class="w-5 h-5 text-sky-500 shrink-0" />
+              <div>
+                <span class="font-bold text-slate-900">服務郵箱 : </span>
+                <a href="mailto:service@taiou.org" class="text-sky-600 hover:text-sky-700 hover:underline font-semibold">service@taiou.org</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100">
+          <div class="flex items-center gap-3">
+            <a
+              href="https://www.facebook.com/TaipeiAI"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-sky-50 hover:bg-sky-500 text-sky-600 hover:text-white border border-sky-200 flex items-center justify-center transition-all"
+              aria-label="Facebook"
+            >
+              <Icon name="facebook" class="w-5 h-5" />
+            </a>
+            <a
+              href="https://www.facebook.com/TaipeiAI"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-pink-50 hover:bg-pink-500 text-pink-600 hover:text-white border border-pink-200 flex items-center justify-center transition-all"
+              aria-label="Instagram"
+            >
+              <Icon name="instagram" class="w-5 h-5" />
+            </a>
+            <a
+              href="https://www.facebook.com/TaipeiAI"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-red-50 hover:bg-red-500 text-red-600 hover:text-white border border-red-200 flex items-center justify-center transition-all"
+              aria-label="YouTube"
+            >
+              <Icon name="youtube" class="w-5 h-5" />
+            </a>
+            <a
+              href="https://m.me/101220492689543"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-sky-50 hover:bg-sky-500 text-sky-600 hover:text-white border border-sky-200 flex items-center justify-center transition-all"
+              aria-label="Messenger"
+            >
+              <Icon name="messenger" class="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: 捐款資訊 -->
+      <div class="bg-white border border-sky-200/80 shadow-md rounded-2xl p-7 space-y-6 flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2.5 mb-4">
+            <Icon name="hand-dollar" class="w-6 h-6 text-amber-500" />
+            <span>支持捐款</span>
+          </h3>
+
+          <div class="bg-sky-50/60 rounded-xl p-4 border border-sky-100 space-y-2.5 text-sm sm:text-base">
+            <div class="flex flex-col sm:flex-row sm:justify-between py-1 border-b border-sky-100 gap-0.5">
+              <span class="text-slate-500 font-medium">戶名 : </span>
+              <span class="font-bold text-slate-900">臺北市人工智慧產業工會</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:justify-between py-1 border-b border-sky-100 gap-0.5">
+              <span class="text-slate-500 font-medium">銀行 : </span>
+              <span class="font-bold text-slate-900">合作金庫銀行(006)</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:justify-between py-1 gap-0.5">
+              <span class="text-slate-500 font-medium">帳號 : </span>
+              <span class="font-mono font-bold text-sky-700 tracking-wider text-base sm:text-lg">0969-71707-4581</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <a
+            href="https://forms.gle/ams228wGw6AKkPQj6"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2.5 w-full px-4 py-3 rounded-xl text-sm sm:text-base font-bold text-white bg-gradient-to-r from-sky-500 to-cyan-600 hover:from-sky-600 hover:to-cyan-700 shadow-md hover:shadow-lg transition-all text-center"
+          >
+            <Icon name="file-check" class="w-5 h-5" />
+            <span>捐款完畢填寫收據資料</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Facebook 官方粉專動態 -->
+      <div class="bg-white border border-sky-200/80 shadow-md rounded-2xl p-7 space-y-4 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+            <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2.5">
+              <Icon name="facebook" class="w-5 h-5 text-sky-600" />
+              <span>官方 Facebook</span>
+            </h3>
+            <a
+              href="https://www.facebook.com/TaipeiAI"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-xs font-semibold text-sky-600 hover:text-sky-700 hover:underline"
+            >
+              追蹤粉專 &rarr;
+            </a>
+          </div>
+
+          <div class="flex justify-center overflow-hidden rounded-xl bg-slate-50 p-1.5 border border-slate-100 min-h-[170px]">
+            <div
+              class="fb-page"
+              data-href="https://www.facebook.com/TaipeiAI"
+              data-tabs="timeline"
+              data-width="340"
+              data-height="200"
+              data-small-header="true"
+              data-adapt-container-width="true"
+              data-hide-cover="true"
+              data-show-facepile="false"
+            >
+              <blockquote cite="https://www.facebook.com/TaipeiAI" class="fb-xfbml-parse-ignore">
+                <a href="https://www.facebook.com/TaipeiAI" class="text-slate-700 text-xs hover:underline">臺北市人工智慧產業工會 Facebook</a>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Half: 版權宣告 (動態年份) -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-slate-600 text-sm sm:text-base text-center">
+    <p class="font-medium">
+      登記字號 北市工字第898號 | ©版權所有 <span id="copyright-year">{currentYear}</span> 臺北市人工智慧產業工會 Taipei AI Organization of Union
+    </p>
+  </div>
+
+  <!-- 浮動回到頂部按鈕 (純 Icon) -->
+  <button
+    id="scroll-top-btn"
+    type="button"
+    aria-label="回到頂部"
+    class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-white shadow-xl flex items-center justify-center text-lg transition-all opacity-0 pointer-events-none hover:scale-110"
+  >
+    <Icon name="chevron-up" class="w-5 h-5" />
+  </button>
+</footer>
+
+<script is:inline>
+  // 自動更新為最新當前年份
+  const yr = document.getElementById('copyright-year');
+  if (yr) {
+    yr.textContent = new Date().getFullYear();
+  }
+
+  // 浮動按鈕控制（使用 requestAnimationFrame 與 passive 監聽徹底消除 Layout Thrashing）
+  const scrollBtn = document.getElementById('scroll-top-btn');
+  if (scrollBtn) {
+    let isTicking = false;
+    window.addEventListener('scroll', () => {
+      if (!isTicking) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > 300) {
+            scrollBtn.classList.remove('opacity-0', 'pointer-events-none');
+            scrollBtn.classList.add('opacity-100', 'pointer-events-auto');
+          } else {
+            scrollBtn.classList.add('opacity-0', 'pointer-events-none');
+            scrollBtn.classList.remove('opacity-100', 'pointer-events-auto');
+          }
+          isTicking = false;
+        });
+        isTicking = true;
+      }
+    }, { passive: true });
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Facebook SDK 延遲載入（進入 Footer 視窗前 200px 才動態插入 SDK，首屏主執行緒 0 阻塞）
+  const fbObserver = new IntersectionObserver((entries) => {
+    if (entries[0] && entries[0].isIntersecting) {
+      if (!document.getElementById('fb-sdk-script')) {
+        const s = document.createElement('script');
+        s.id = 'fb-sdk-script';
+        s.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v22.0&appId=2036835146396965';
+        s.async = true;
+        s.defer = true;
+        s.crossOrigin = 'anonymous';
+        document.body.appendChild(s);
+      }
+      fbObserver.disconnect();
+    }
+  }, { rootMargin: '200px' });
+
+  const footerSection = document.getElementById('contact');
+  if (footerSection) {
+    fbObserver.observe(footerSection);
+  }
+</script>

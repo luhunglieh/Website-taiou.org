@@ -1,0 +1,105 @@
+---
+import Icon from './Icon.astro';
+
+const navLinks = [
+  { name: '成立緣起', href: '/#service' },
+  { name: '理監事團隊', href: '/#team' },
+  { name: '組織章程', href: 'https://drive.google.com/file/d/1Wf7eCk-ssOtjx1fbadR3s8APZx56NRlx/view', external: true },
+  { name: '性騷防治', href: '/metoo-202503.pdf', external: true },
+  { name: '聯絡我們', href: '/#contact' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-white/50 backdrop-blur-md border-b border-white/40 shadow-xs transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Logo -->
+      <a href="/" class="flex items-center group">
+        <img
+          src="/assets/images/logo.webp"
+          alt="Taipei AIOU Logo"
+          width="328"
+          height="66"
+          loading="eager"
+          decoding="async"
+          class="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+        />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-1.5 lg:gap-3">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noopener noreferrer' : undefined}
+            class="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium text-slate-700 hover:text-sky-600 hover:bg-sky-50/80 rounded-lg transition-colors"
+          >
+            <span>{link.name}</span>
+            {link.external && <Icon name="arrow-external" class="w-3.5 h-3.5 opacity-70" />}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex md:hidden">
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-label="Toggle navigation menu"
+          class="p-2.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none flex items-center justify-center w-10 h-10"
+        >
+          <span id="menu-icon-bars"><Icon name="bars" class="w-6 h-6" /></span>
+          <span id="menu-icon-close" class="hidden"><Icon name="xmark" class="w-6 h-6" /></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Nav Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white/95 backdrop-blur-md px-4 pt-2 pb-6 space-y-1 shadow-lg">
+    {navLinks.map(link => (
+      <a
+        href={link.href}
+        target={link.external ? '_blank' : undefined}
+        rel={link.external ? 'noopener noreferrer' : undefined}
+        class="flex items-center justify-between px-3.5 py-2.5 rounded-md text-base font-medium text-slate-700 hover:text-sky-600 hover:bg-sky-50"
+      >
+        <span>{link.name}</span>
+        {link.external && <Icon name="arrow-external" class="w-4 h-4 opacity-70" />}
+      </a>
+    ))}
+  </div>
+</header>
+
+<script is:inline>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconBars = document.getElementById('menu-icon-bars');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  if (btn && menu && iconBars && iconClose) {
+    btn.addEventListener('click', () => {
+      const isExpanded = !menu.classList.contains('hidden');
+      if (isExpanded) {
+        menu.classList.add('hidden');
+        iconBars.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      } else {
+        menu.classList.remove('hidden');
+        iconBars.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      }
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        iconBars.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+  }
+</script>

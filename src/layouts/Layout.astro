@@ -1,0 +1,109 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "臺北市人工智慧產業工會 Taipei AI Organization of Union",
+  description = "本會成立以服務會員、保障勞工權益福利、增益勞資關係、強化勞工於人工智慧技職能訓練並進而協助政府推行政令為旨，期望共同促進國家發展趨勢。"
+} = Astro.props;
+
+const siteUrl = "https://www.taiou.org";
+const ogImageUrl = `${siteUrl}/assets/images/logo.png`;
+
+// JSON-LD 結構化資料 (Schema.org Organization)
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "臺北市人工智慧產業工會",
+  "alternateName": ["Taipei AI Organization of Union", "t/ AIOU"],
+  "url": siteUrl,
+  "logo": ogImageUrl,
+  "description": description,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "南京東路二段101號9樓",
+    "addressLocality": "中山區",
+    "addressRegion": "臺北市",
+    "postalCode": "104",
+    "addressCountry": "TW"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+886-2-2511-6900",
+    "contactType": "customer service",
+    "email": "service@taiou.org",
+    "availableLanguage": ["zh-TW", "en"]
+  },
+  "sameAs": [
+    "https://www.facebook.com/TaipeiAI"
+  ]
+};
+---
+
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- 基本 SEO Meta 標籤 -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="臺北市人工智慧產業工會, Taipei AI Organization of Union, t/ AIOU, 人工智慧, AI工會, 勞工權益, 勞資雙贏, AI技能培訓, 智慧國家方案, 勞動部, 臺北市勞動局, 呂鴻烈" />
+    <meta name="author" content="臺北市人工智慧產業工會" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={`${siteUrl}/`} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:site_name" content="臺北市人工智慧產業工會 Taipei AI Organization of Union" />
+    <meta property="og:url" content={`${siteUrl}/`} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="328" />
+    <meta property="og:image:height" content="66" />
+    <meta property="og:image:alt" content="臺北市人工智慧產業工會 Logo" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Schema.org JSON-LD 結構化資料 (SEO Rich Snippets) -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <!-- Google Fonts (已配置 preconnect 與 display=swap，精簡核心字重大幅縮減 CJK 切片網路請求) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) GA4 分析代碼 -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-K08HQM8T6Q"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-K08HQM8T6Q');
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen selection:bg-sky-500 selection:text-white font-['Noto_Sans_TC',sans-serif]">
+    <!-- Facebook SDK Root Container (W3C DOM Compliance inside body) -->
+    <div id="fb-root"></div>
+    <Navbar />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

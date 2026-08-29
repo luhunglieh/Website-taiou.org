@@ -1,0 +1,61 @@
+---
+import Icon from './Icon.astro';
+
+const members = [
+  { name: '呂鴻烈', role: '理事長', isLeader: true, email: 'henry@taiou.org' },
+  { name: '曾紹華', role: '理事', isLeader: false },
+  { name: '葉亮吟', role: '理事', isLeader: false },
+  { name: '詹添福', role: '理事', isLeader: false },
+  { name: '嚴宏煒', role: '理事', isLeader: false, email: 'dg@taiou.org' },
+  { name: '李宛珊', role: '監事', isLeader: false, isSupervisor: true },
+];
+---
+
+<section id="team" class="relative py-16 lg:py-24 bg-cover bg-center bg-no-repeat text-slate-800 border-t border-sky-100" style="background-image: url('/assets/images/wave-bg.webp');">
+  <!-- Subtle Soft Light Overlay -->
+  <div class="absolute inset-0 bg-white/80 backdrop-blur-[1px]"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+        第一屆理監事
+      </h2>
+      <div class="w-16 h-1 bg-sky-400 mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {members.map(member => (
+        <div class="rounded-2xl p-8 text-center transition-all duration-300 bg-white/95 backdrop-blur-sm border border-slate-200/90 shadow-sm hover:border-sky-300 hover:shadow-md hover:-translate-y-1">
+          <h3 class="text-3xl font-extrabold text-slate-900 mb-3 tracking-wide">{member.name}</h3>
+          <div class="flex items-center justify-center gap-2">
+            <span class={`inline-block px-5 py-1.5 rounded-full text-base font-bold tracking-wider border ${
+              member.isLeader 
+                ? 'border-sky-500 text-sky-600 bg-sky-50/60' 
+                : member.isSupervisor
+                ? 'border-teal-400 text-teal-700 bg-teal-50/40'
+                : 'border-slate-300 text-slate-600 bg-slate-50'
+            }`}>
+              {member.role}
+            </span>
+            {member.email && (
+              <a
+                href={`mailto:${member.email}`}
+                title={`寄信給 ${member.name} (${member.email})`}
+                aria-label={`寄信給 ${member.name}`}
+                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-sky-50 hover:bg-sky-500 text-sky-600 hover:text-white border border-sky-200 transition-all shadow-sm"
+              >
+                <Icon name="envelope" class="w-4 h-4" />
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-center text-sm text-slate-500 mt-10 font-medium">
+      理事依姓氏筆劃排序相同者女士優先
+    </p>
+
+  </div>
+</section>

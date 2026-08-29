@@ -1,0 +1,64 @@
+---
+import Icon from './Icon.astro';
+---
+
+<section
+  id="home"
+  class="relative overflow-hidden bg-no-repeat -mt-20 pt-28 sm:pt-32 lg:pt-40 pb-20 lg:pb-32 min-h-[640px] sm:min-h-[700px] lg:min-h-[780px] 2xl:min-h-[860px] flex items-center bg-cover bg-[position:70%_top] sm:bg-[position:72%_top] lg:bg-[position:82%_top] 2xl:bg-[position:78%_top] text-slate-800"
+  style="background-image: url('/assets/images/robot-bg.webp');"
+>
+  <!-- Overlay: 
+       手機版使用柔和透光遮罩保持文字清晰且看得到中間機器人；
+       電腦版/超寬螢幕左側柔和遮罩，右側完全通透露出機器人雙眼與機身 -->
+  <div class="absolute inset-0 bg-white/70 sm:bg-transparent sm:bg-gradient-to-r sm:from-white/95 sm:via-white/50 sm:to-transparent pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <!-- Left Column (Text & CTAs) -->
+      <div class="lg:col-span-8 space-y-6 text-center lg:text-left">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight drop-shadow-sm">
+          臺北市<span class="text-sky-600">人工智慧產業工會</span>
+        </h1>
+
+        <div class="space-y-2">
+          <p class="text-xl sm:text-2xl font-bold text-slate-800">
+            Taipei AI Organization of Union
+          </p>
+          <p class="text-base sm:text-lg font-medium text-sky-700">
+            簡稱 t/ AIOU
+          </p>
+        </div>
+
+        <p class="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal bg-white/50 sm:bg-white/40 backdrop-blur-xs p-3 rounded-2xl border border-white/60">
+          本會成立以服務會員、保障勞工權益福利、增益勞資關係、強化勞工於人工智慧技職能訓練並進而協助政府推行政令為旨，期望共同促進國家發展趨勢。
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+          <a
+            href="https://m.me/101220492689543"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl font-bold text-white bg-sky-500 hover:bg-sky-600 active:bg-sky-700 shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 transition-all transform hover:-translate-y-0.5 text-base"
+          >
+            <Icon name="messenger" class="w-5 h-5" />
+            <span>快速聯絡本會</span>
+          </a>
+
+          <a
+            href="#service"
+            class="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl font-semibold text-slate-700 bg-white/95 hover:bg-white border border-sky-200 shadow-md transition-all text-base"
+          >
+            <span>成立緣起與簡介</span>
+            <Icon name="arrow-down" class="w-4 h-4 text-sky-500" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: 留白完全展示白瓷機器人 -->
+      <div class="hidden lg:block lg:col-span-4 min-h-[420px]"></div>
+
+    </div>
+  </div>
+</section>
