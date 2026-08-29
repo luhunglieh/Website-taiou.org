@@ -1,20 +1,89 @@
-# build output
+# ==========================================
+# 1. 建構輸出與框架快取 (Build & Framework Cache)
+# ==========================================
 dist/
 .astro/
+.cache/
+.parcel-cache/
 
-# dependencies
+# ==========================================
+# 2. 依賴套件 (Dependencies)
+# ==========================================
 node_modules/
+.pnpm-store/
 
-# logs
+# ==========================================
+# 3. 環境變數與機密金鑰 (Secrets & Environment)
+# ==========================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+*.crt
+
+# ==========================================
+# 4. 日誌與除錯檔案 (Logs & Debugging)
+# ==========================================
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-# environment variables
-.env
-.env.production
+# ==========================================
+# 5. 測試與覆蓋率 (Testing & Coverage)
+# ==========================================
+coverage/
+.nyc_output/
+*.lcov
 
-# OS files
+# ==========================================
+# 6. IDE 與編輯器設定 (IDE & Editor Settings)
+# ==========================================
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ==========================================
+# 7. 作業系統隱藏垃圾檔 (OS Generated Files)
+# ==========================================
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
 Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+desktop.ini
+Desktop.ini
+$RECYCLE.BIN/
+
+# ==========================================
+# 8. 臨時檔與備份 (Temporary & Backup Files)
+# ==========================================
+*.tmp
+*.temp
+*.bak
+*.old
+*~
+scratch/
