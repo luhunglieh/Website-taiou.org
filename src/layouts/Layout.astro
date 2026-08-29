@@ -13,7 +13,8 @@ const {
   description = "本會成立以服務會員、保障勞工權益福利、增益勞資關係、強化勞工於人工智慧技職能訓練並進而協助政府推行政令為旨，期望共同促進國家發展趨勢。"
 } = Astro.props;
 
-const siteUrl = "https://www.taiou.org";
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
+const siteUrl = "https://luhunglieh.github.io/Website-taiou.org";
 const ogImageUrl = `${siteUrl}/assets/images/logo.png`;
 
 // JSON-LD 結構化資料 (Schema.org Organization)
@@ -51,7 +52,7 @@ const structuredData = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href={`${base}/favicon.ico`} />
     <meta name="generator" content={Astro.generator} />
 
     <!-- 基本 SEO Meta 標籤 -->
@@ -61,6 +62,7 @@ const structuredData = {
     <meta name="author" content="臺北市人工智慧產業工會" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href={`${siteUrl}/`} />
+    <link rel="sitemap" href={`${base}/sitemap.xml`} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />

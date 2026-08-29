@@ -3,7 +3,8 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://taiou.org',
+  site: 'https://luhunglieh.github.io',
+  base: '/Website-taiou.org',
   integrations: [tailwind()],
   output: 'static',
   devToolbar: {

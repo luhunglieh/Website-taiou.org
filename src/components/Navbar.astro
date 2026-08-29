@@ -1,12 +1,14 @@
 ---
 import Icon from './Icon.astro';
 
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
+
 const navLinks = [
-  { name: '成立緣起', href: '/#service' },
-  { name: '理監事團隊', href: '/#team' },
+  { name: '成立緣起', href: `${base}/#service` },
+  { name: '理監事團隊', href: `${base}/#team` },
   { name: '組織章程', href: 'https://drive.google.com/file/d/1Wf7eCk-ssOtjx1fbadR3s8APZx56NRlx/view', external: true },
-  { name: '性騷防治', href: '/metoo-202503.pdf', external: true },
-  { name: '聯絡我們', href: '/#contact' },
+  { name: '性騷防治', href: `${base}/metoo-202503.pdf`, external: true },
+  { name: '聯絡我們', href: `${base}/#contact` },
 ];
 ---
 
@@ -15,9 +17,9 @@ const navLinks = [
     <div class="flex items-center justify-between h-20">
       
       <!-- Logo -->
-      <a href="/" class="flex items-center group">
+      <a href={base || "/"} class="flex items-center group">
         <img
-          src="/assets/images/logo.webp"
+          src={`${base}/assets/images/logo.webp`}
           alt="Taipei AIOU Logo"
           width="328"
           height="66"

@@ -1,6 +1,8 @@
 ---
 import Icon from './Icon.astro';
 
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL.slice(0, -1) : import.meta.env.BASE_URL;
+
 const members = [
   { name: '呂鴻烈', role: '理事長', isLeader: true, email: 'henry@taiou.org' },
   { name: '曾紹華', role: '理事', isLeader: false },
@@ -11,7 +13,7 @@ const members = [
 ];
 ---
 
-<section id="team" class="relative py-16 lg:py-24 bg-cover bg-center bg-no-repeat text-slate-800 border-t border-sky-100" style="background-image: url('/assets/images/wave-bg.webp');">
+<section id="team" class="relative py-16 lg:py-24 bg-cover bg-center bg-no-repeat text-slate-800 border-t border-sky-100" style={`background-image: url('${base}/assets/images/wave-bg.webp');`}>
   <!-- Subtle Soft Light Overlay -->
   <div class="absolute inset-0 bg-white/80 backdrop-blur-[1px]"></div>
 
