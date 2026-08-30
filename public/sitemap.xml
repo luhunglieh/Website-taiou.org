@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- 官方首頁 -->
   <url>
     <loc>https://www.taiou.org/</loc>
-    <lastmod>2026-08-29</lastmod>
+    <lastmod>2026-08-29T20:30:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.taiou.org/assets/images/logo.png</image:loc>
+      <image:title>臺北市人工智慧產業工會 Logo</image:title>
+      <image:caption>臺北市人工智慧產業工會 Taipei AI Organization of Union</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.taiou.org/assets/images/service0.webp</image:loc>
+      <image:title>成立緣起與簡介 - 青年AI研發團隊</image:title>
+      <image:caption>行政院智慧國家方案與生成式AI時代工會使命</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.taiou.org/assets/images/service2.webp</image:loc>
+      <image:title>臺北市工會登記證書</image:title>
+      <image:caption>登記字號 北市工字第898號</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 性騷擾防治措施申訴及懲戒辦法 官方公開 PDF -->
+  <url>
+    <loc>https://www.taiou.org/metoo-202503.pdf</loc>
+    <lastmod>2026-08-29T20:30:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
