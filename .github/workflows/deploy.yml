@@ -5,46 +5,60 @@ on:
     branches: [main, master]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
+# 資安規範：
+# 1. Node 18 已於 2025-04-30 終止支援；Node 20 已 EOL（Node 20 於 2026-04-30 終止支援）。
+# 2. 於 Workflow 頂層設定 FORCE_JAVASCRIPT_ACTIONS_TO_NODE24，強制所有第三方 JS Actions 底層 Runtime 皆以 Node 24 執行。
+# 3. 供應鏈安全：所有 Actions 皆 Pin 鎖定不可變 40 位元 Git Commit SHA，杜絕標籤遭竄改或劫持之風險。
+# 4. 最小權限原則：移除全域頂層權限，收斂至各 Job 個別宣告最小必要 permissions。
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
+    name: Build Astro Site
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Node.js 24 LTS
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
 
-      - name: Install dependencies
+      - name: Setup GitHub Pages
+        id: pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
+
+      - name: Install dependencies (clean install)
         run: npm ci
 
-      - name: Build Astro site
+      - name: Type-check and build with Astro
         run: npm run build
 
-      - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: ./dist
 
   deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

@@ -64,6 +64,25 @@ const structuredData = {
     <link rel="canonical" href={`${siteUrl}/`} />
     <link rel="sitemap" href={`${base}/sitemap.xml`} />
 
+    <!-- Security & Privacy Baseline (CSP & Anti-Clickjacking Defense) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://www.facebook.com https://*.fbcdn.net https://*.facebook.com; connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com https://*.facebook.com; frame-src 'self' https://www.facebook.com https://web.facebook.com; object-src 'none'; base-uri 'self'; form-action 'self' https://forms.gle;" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- OWASP Anti-Clickjacking Frame-Busting Guard for Static Hosting -->
+    <style id="anti-clickjack" is:inline>body{display:none !important;}</style>
+    <script is:inline>
+      if (self === top) {
+        var antiClickjack = document.getElementById('anti-clickjack');
+        if (antiClickjack) antiClickjack.parentNode.removeChild(antiClickjack);
+      } else {
+        top.location = self.location;
+      }
+    </script>
+    <noscript>
+      <style>body{display:block !important;}</style>
+    </noscript>
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />

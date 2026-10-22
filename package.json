@@ -2,10 +2,17 @@
   "name": "website-taiou-org",
   "type": "module",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=24.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
+    "postinstall": "node scripts/enforce-node24.mjs",
+    "prebuild": "node scripts/enforce-node24.mjs",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "postbuild": "node scripts/verify-financial-integrity.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
